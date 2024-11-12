@@ -8,4 +8,4 @@ st.link_button("구글 바로가기","https://www.google.com")
 
 import openai
 
-st.text_input(label, type="password")
+rabel=st.text_input(type="password")
