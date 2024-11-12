@@ -12,3 +12,17 @@ api=st.text_input("password")
 
 client=OpenAI
 client.api_key=api
+
+def ask_openai(question, chat_log=None):
+    if chat_log is None:
+        chat_log = []
+    messages = [{"role": "user", "content": msg} for msg in chat_log]
+    messages.append({"role": "user", "content": question})
+    # new openai 반영.
+    response = client.chat.completions.create(
+        model="gpt-4.o-mini",
+        messages=messages
+    )
+    # new openai 반영.
+    answer = response.choices[0].message.content
+    return answer
