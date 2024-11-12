@@ -26,3 +26,18 @@ def ask_openai(question, chat_log=None):
     # new openai 반영.
     answer = response.choices[0].message.content
     return answer
+
+def chat():
+    print("chatting is started. If you want to exit, enter 'exit'.")
+    chat_log = []
+    while True:
+        user_input = input("User: ")
+        if user_input.lower() == 'exit':
+            print("Exiting...")
+            break
+        response = ask_openai(user_input, chat_log)
+        print(f"AI bot: {response}")
+        chat_log.extend([user_input, response])
+
+if __name__ == "__main__":
+    chat()
