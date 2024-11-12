@@ -10,4 +10,4 @@ from openai import OpenAI
 
 api=st.text_input("password")
 
-client.api_key=api
+client=OpenAI
