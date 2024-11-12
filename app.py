@@ -28,15 +28,15 @@ def ask_openai(question, chat_log=None):
     return answer
 
 def chat():
-    print("chatting is started. If you want to exit, enter 'exit'.")
+    st.write("chatting is started. If you want to exit, enter 'exit'.")
     chat_log = []
     while True:
-        user_input = input("User: ")
+        user_input = st.text_input("User: ")
         if user_input.lower() == 'exit':
-            print("Exiting...")
+            st.write("Exiting...")
             break
         response = ask_openai(user_input, chat_log)
-        print(f"AI bot: {response}")
+        st.write(f"AI bot: {response}")
         chat_log.extend([user_input, response])
 
 if __name__ == "__main__":
