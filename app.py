@@ -8,5 +8,5 @@ st.link_button("구글 바로가기","https://www.google.com")
 
 from openai import OpenAI
 
-api_key=st.text_input("password")
-OPENAI_API_KEY=api_key
+client = OpenAI()
+client.api_key=st.text_input("password")
