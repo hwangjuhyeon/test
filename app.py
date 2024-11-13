@@ -35,4 +35,4 @@ def list_directory_structure(start_path='.'):
             print(f"{sub_indent}{file}")
 
 # 현재 디렉토리에서 폴더 구조 출력
-st.write("list_directory_structure()")
+st.write(list_directory_structure())
