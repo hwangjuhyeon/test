@@ -24,8 +24,3 @@ st.page_link("https://www.google.com", label="Google", icon="🌎")
 
 api_key = st.text_input("OpenAI API Key", type='password')
 client = OpenAI(api_key=api_key)
-
-prompt = st.text_area("Prompt")
-messages = [
-    {"role": "user", "content": prompt}
-]
