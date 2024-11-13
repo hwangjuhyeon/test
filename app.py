@@ -17,3 +17,6 @@ if 'key' not in st.session_state:
     st.session_state['key'] = 'hello'
 
 st.write(st.session_state.key)
+
+st.text_input("Your name", key="name") 
+st.session_state.name
