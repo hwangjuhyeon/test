@@ -20,3 +20,5 @@ st.write(st.session_state.key)
 
 st.text_input("Your name", key="name") 
 st.session_state.name
+
+st.page_link("app2", label="app2")
