@@ -9,9 +9,6 @@ st.link_button("구글 바로가기","https://www.google.com")
 
 from openai import OpenAI
 
-client=OpenAI
-client.api_key=api
-
 if 'key' not in st.session_state:
     st.session_state['key'] = 'hello'
 
