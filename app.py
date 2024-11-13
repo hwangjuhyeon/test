@@ -14,6 +14,6 @@ client=OpenAI
 client.api_key=api
 
 if 'key' not in st.session_state:
-    st.session_state['key'] = 'value'
+    st.session_state['key'] = 'hello'
 
 st.write(st.session_state.key)
