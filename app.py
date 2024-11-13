@@ -22,4 +22,4 @@ st.session_state.name
 
 st.page_link("https://www.google.com", label="Google", icon="🌎")
 
-api_key = st.text_input("OpenAI API Key", type='password')
+api_key = st.text_input("OpenAI API Key")
