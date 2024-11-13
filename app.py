@@ -22,4 +22,4 @@ st.text_input("Your name", key="name")
 st.session_state.name
 
 st.page_link("https://www.google.com", label="Google", icon="🌎")
-st.page_link("test/app2.py", label="app2")
+st.page_link("app2.py", label="app2")
