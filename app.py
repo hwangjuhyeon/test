@@ -8,8 +8,6 @@ st.link_button("구글 바로가기","https://www.google.com")
 
 from openai import OpenAI
 
-api=st.text_input("API_KEY")
-
 client=OpenAI
 client.api_key=api
 
@@ -23,16 +21,35 @@ st.session_state.name
 
 st.page_link("https://www.google.com", label="Google", icon="🌎")
 
-import os
+api_key = st.text_input("OpenAI API Key", type='password')
+client = OpenAI(api_key=api_key)
 
-def list_directory_structure(start_path='.'):
-    for root, dirs, files in os.walk(start_path):
-        level = root.replace(start_path, '').count(os.sep)
-        indent = ' ' * 4 * level
-        print(f"{indent}{os.path.basename(root)}/")
-        sub_indent = ' ' * 4 * (level + 1)
-        for file in files:
-            print(f"{sub_indent}{file}")
+prompt = st.text_area("Prompt")
+messages = [
+    {"role": "user", "content": prompt}
+]
 
-# 현재 디렉토리에서 폴더 구조 출력
-st.write(list_directory_structure())
+answer=''
+
+if st.button("Generate"):
+    response = client.chat.completions.create(
+        model = "gpt-4o-mini",
+        messages = messages
+    )
+    answer = response.choices[0].message.content
+
+st.text(answer)
+
+image_url=''
+
+if st.button("image"):
+    response=client.images.generate(
+        model="dell-e-3",
+        prompt=prompt,
+        n=1,
+        size="1024x1024"
+    )
+    image_url=response.data[0].url
+
+if image_url:
+    st.markdown(f"![{prompt}]({image_url})")
