@@ -1,15 +1,15 @@
 import streamlit as st
 import openai
 
-# OpenAI API 키 설정
-openai.api_key = st.secrets["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"]  # Streamlit Sharing 환경에서 secrets.toml 파일을 사용하여 API 키 관리
+# OpenAI API 키를 코드에 직접 입력
+openai.api_key = "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"  # 여기에 실제 OpenAI API 키를 입력하세요.
 
 # 챗봇 응답 생성 함수
 def generate_response(user_input):
     try:
         # OpenAI GPT API를 사용하여 응답 생성
         response = openai.Completion.create(
-            engine="text-davinci-003",  # 또는 "gpt-3.5-turbo" 등 다른 모델을 사용할 수 있습니다.
+            engine="gpt-4.o-mini",  # 또는 "gpt-3.5-turbo" 등의 모델을 사용할 수 있습니다.
             prompt=user_input,
             max_tokens=150
         )
