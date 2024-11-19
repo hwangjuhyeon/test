@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 
 # OpenAI API 키 설정
-openai.api_key = "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"  # 여기에 실제 OpenAI API 키를 입력하세요.
+openai.api_key = "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"  # 여기에 실제 OpenAI API 키를 입력하세요.
 
 # 챗봇 응답 생성 함수
 def generate_response(user_input):
