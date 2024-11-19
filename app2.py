@@ -9,7 +9,7 @@ def generate_response(user_input):
     try:
         # 최신 API 방식 사용 (openai.completions.create)
         response = openai.completions.create(
-            model="gpt-4-mini",  # GPT-4 mini 모델 사용
+            model="gpt-4.o-mini",  # GPT-4 mini 모델 사용
             prompt=user_input,
             max_tokens=150  # 원하는 토큰 수로 응답 길이 설정
         )
