@@ -1,19 +1,20 @@
 import streamlit as st
 import openai
 
-# OpenAI API 키를 코드에 직접 입력
+# OpenAI API 키 설정
 openai.api_key = "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"  # 여기에 실제 OpenAI API 키를 입력하세요.
 
 # 챗봇 응답 생성 함수
 def generate_response(user_input):
     try:
-        # OpenAI GPT API를 사용하여 응답 생성
-        response = openai.Completion.create(
-            engine="gpt-4.o-mini",  # 또는 "gpt-3.5-turbo" 등의 모델을 사용할 수 있습니다.
-            prompt=user_input,
-            max_tokens=150
+        # 새로운 방식으로 API 호출 (chat.Completion 사용)
+        response = openai.chat.Completion.create(
+            model="gpt-4.o-mini",  # 또는 "gpt-4"와 같은 다른 모델 사용 가능
+            messages=[
+                {"role": "user", "content": user_input}
+            ]
         )
-        return response.choices[0].text.strip()
+        return response['choices'][0]['message']['content'].strip()
     except Exception as e:
         return f"Error: {str(e)}"
 
