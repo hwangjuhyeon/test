@@ -7,14 +7,13 @@ openai.api_key = "sk-proj-bbI1NJH6XYLlsrRVSd9ks8qXtDnrB6S4l0hqmzccNuF-y_bRGpy3v2
 # 챗봇 응답 생성 함수
 def generate_response(user_input):
     try:
-        # GPT-4 mini 모델을 사용하여 응답 생성
-        response = openai.ChatCompletion.create(
+        # 최신 API 방식 사용 (openai.completions.create)
+        response = openai.completions.create(
             model="gpt-4-mini",  # GPT-4 mini 모델 사용
-            messages=[
-                {"role": "user", "content": user_input}
-            ]
+            prompt=user_input,
+            max_tokens=150  # 원하는 토큰 수로 응답 길이 설정
         )
-        return response['choices'][0]['message']['content'].strip()
+        return response['choices'][0]['text'].strip()
     except Exception as e:
         return f"Error: {str(e)}"
 
