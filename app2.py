@@ -1,18 +1,15 @@
-pip install streamlit
-pip install openai  # 만약 OpenAI GPT API를 사용하고자 한다면 이 라이브러리도 설치
-
 import streamlit as st
-import openai  # OpenAI GPT를 사용할 경우, 이 라이브러리가 필요합니다.
+import openai
 
-# OpenAI API 키 설정 (만약 GPT 모델을 사용한다면)
-openai.api_key = 'YOUR_API_KEY'
+# OpenAI API 키 설정
+openai.api_key = st.secrets["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"]  # secrets.toml 또는 Heroku 환경 변수로 설정
 
 # 챗봇 응답 생성 함수
 def generate_response(user_input):
     try:
         # OpenAI GPT API를 사용하여 응답 생성
         response = openai.Completion.create(
-            engine="text-davinci-003",  # 또는 "gpt-3.5-turbo" 등 다른 모델을 사용할 수 있습니다.
+            engine="gpt-4.o-mini",  # 또는 "gpt-3.5-turbo" 등 다른 모델을 사용할 수 있습니다.
             prompt=user_input,
             max_tokens=150
         )
