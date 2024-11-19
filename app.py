@@ -30,7 +30,7 @@ messages = [
 answer=''
 
 if st.button("Generate"):
-    response = client.chat.completions.create(
+    response = openai.completions.create(
         model = "gpt-4o-mini",
         messages = messages
     )
