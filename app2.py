@@ -7,9 +7,9 @@ openai.api_key = "sk-proj-bbI1NJH6XYLlsrRVSd9ks8qXtDnrB6S4l0hqmzccNuF-y_bRGpy3v2
 # 챗봇 응답 생성 함수
 def generate_response(user_input):
     try:
-        # 새로운 방식으로 API 호출 (chat.Completion 사용)
-        response = openai.chat.Completion.create(
-            model="gpt-4.o-mini",  # 또는 "gpt-4"와 같은 다른 모델 사용 가능
+        # GPT-4 mini 모델을 사용하여 응답 생성
+        response = openai.ChatCompletion.create(
+            model="gpt-4-mini",  # GPT-4 mini 모델 사용
             messages=[
                 {"role": "user", "content": user_input}
             ]
